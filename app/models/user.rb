@@ -1,4 +1,4 @@
 class User < ActiveRecord::Base
-	belongs_to :platform, :polymorphic => true
+	# belongs_to :platform, :polymorphic => true
 	
 end

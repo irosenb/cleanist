@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20130827192428) do
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "token"
+    t.string   "platform"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "platform_id"

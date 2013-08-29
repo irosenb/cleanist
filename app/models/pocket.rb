@@ -1,3 +1,3 @@
 class Pocket < ActiveRecord::Base
-	has_one :user, as: :platform
+	belongs_to :user
 end
