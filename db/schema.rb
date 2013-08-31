@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130827192428) do
+ActiveRecord::Schema.define(version: 20130831144759) do
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20130827192428) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "platform_id"
+    t.string   "platform_key"
   end
 
   add_index "users", ["platform_id"], name: "index_users_on_platform_id"

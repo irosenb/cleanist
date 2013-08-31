@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
-	# belongs_to :platform, :polymorphic => true
+	has_one :platform
+	def retrieve
+
+		
+	end
 	
 end
