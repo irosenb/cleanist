@@ -1,4 +1,7 @@
-== README
+# Cleanist
+
+Welcome to Cleanist! I build this because I was frustrated about the absurd amount of articles saved to my [Pocket](http://getpocket.com), my preferred read later service.  
+
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
