@@ -1,5 +1,6 @@
 CleanistRails::Application.routes.draw do
   resources :users
+  resources :pockets, :controller => 'users'
 
   root 'users#index'
   # get '/users', :path => '/'

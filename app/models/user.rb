@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	attr_reader :since, :url_base, :service_url 
+	attr_reader :since, :url_base, :service_url, :to_archive 
 
 	def since
 		# time since last logged in.
@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
 
 	def url_join(base, url)
 		[base, url].join("")
+	end
+
+	def to_archive
+		[]
 	end
 
 	def retrieve

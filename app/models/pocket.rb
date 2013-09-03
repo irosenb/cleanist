@@ -1,17 +1,4 @@
 class Pocket < User
-	def archive
-		list = JSON.parse(retrieve)
-
-		puts "-----------------"
-		to_archive = []
-		list["list"].each do |item_id, item|
-			puts item_id
-			puts "========="
-			puts item
-			puts "==="
-		end
-		puts "-----------------"
-	end
 
 	def retrieve
 		url = 'get/'
@@ -26,7 +13,25 @@ class Pocket < User
 		pocket_url = url_join(url_base, url)
 
 		self.update 
-		hello = RestClient.post pocket_url, options
+		
+		RestClient.post pocket_url, options
+	end
+
+	def to_archive
+		puts list = JSON.parse(retrieve)
+		id_list = []
+		list["list"].each do |id, item|
+			if item["tag"] != "keep" or item["status"] == 0
+				id_list << id 
+			end
+		end
+		id_list
+	end
+
+	def archive
+		# @to_archive.each do |id|
+			
+		# end
 	end
 
 	def url_base
