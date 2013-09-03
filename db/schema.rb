@@ -16,14 +16,9 @@ ActiveRecord::Schema.define(version: 20130831152643) do
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "token"
-    t.string   "platform"
+    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "platform_id"
-    t.string   "platform_key"
-    t.string   "platform_type"
   end
-
-  add_index "users", ["platform_id"], name: "index_users_on_platform_id"
 
 end

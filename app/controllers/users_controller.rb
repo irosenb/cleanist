@@ -27,7 +27,10 @@ class UsersController < ApplicationController
     token = auth_hash[:credentials][:token]
     name = auth_hash[:info][:name]
     provider = auth_hash[:provider]
-    @user = User.where(name: name, token: token, platform_type: provider).first_or_create
+    @user = User.where(name: name, token: token, type: "#{provider}".capitalize).first_or_create
+    puts "------------------------------------------------"
+    puts @user.to_archive
+    puts "------------------------------------------------"
 
     respond_to do |format|
       if @user.save

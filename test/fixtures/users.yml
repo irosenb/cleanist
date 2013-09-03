@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  token: MyString
-  platform: MyString
+  name: sacdaddy
+  token: lkajsdlkfj-3kjsd98f2-sfldj
+  type: Pocket
 
 two:
-  name: MyString
-  token: MyString
-  platform: MyString
+  name: sacdaddy
+  token: lkajsdlkfj-3kjsd98f2-sfldj
+  type: Pocket
