@@ -1,5 +1,9 @@
 class Pocket < User
 
+	def self.model_name
+		User.model_name
+	end
+
 	def retrieve
 		url = 'get/'
 		token = self.token
@@ -29,9 +33,9 @@ class Pocket < User
 	end
 
 	def archive
-		# @to_archive.each do |id|
+		@to_archive.each do |id|
 			
-		# end
+		end
 	end
 
 	def url_base
