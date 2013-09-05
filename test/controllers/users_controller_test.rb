@@ -3,6 +3,11 @@ require 'test_helper'
 class UsersControllerTest < ActionController::TestCase
   setup do
     @user = users(:one)
+    OmniAuth.config.test_mode = true
+    OmniAuth.config.mock_auth[:pocket] = OmniAuth::AuthHash.new ({
+          :provider => 'pocket',
+          :consumer_key => ENV['POCKET_KEY']
+        })
   end
 
   test "should get index" do
@@ -18,7 +23,7 @@ class UsersControllerTest < ActionController::TestCase
 
   test "should create user" do
     assert_difference('User.count') do
-      post :create, user: { name: @user.name, type: "#{@user.platform}".capitalize, token: @user.token }
+      post :create, user: { name: @user.name, type: "#{@user.type}".capitalize, token: @user.token }
     end
 
     assert_redirected_to user_path(assigns(:user))
@@ -35,7 +40,7 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should update user" do
-    patch :update, id: @user, user: { name: @user.name, type: "#{@user.platform}".capitalize, token: @user.token }
+    patch :update, id: @user, user: { name: @user.name, type: "#{@user.type}".capitalize, token: @user.token }
     assert_redirected_to user_path(assigns(:user))
   end
 
