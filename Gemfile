@@ -20,6 +20,7 @@ gem "httparty"
 gem "rest-client"
 gem "json"
 gem 'twitter-bootstrap-rails'
+gem "awesome_print"
 
 gem "figaro"
 gem "vcr"

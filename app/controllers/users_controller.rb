@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     provider = auth_hash[:provider]
     @user = User.where(name: name, token: token, type: "#{provider}".capitalize).first_or_create
     puts "------------------------------------------------"
-    puts @user.to_archive
+    ap @user.archive
     puts "------------------------------------------------"
 
     respond_to do |format|

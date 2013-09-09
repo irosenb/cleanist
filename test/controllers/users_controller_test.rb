@@ -3,11 +3,6 @@ require 'test_helper'
 class UsersControllerTest < ActionController::TestCase
   setup do
     @user = users(:one)
-    OmniAuth.config.test_mode = true
-    OmniAuth.config.mock_auth[:pocket] = OmniAuth::AuthHash.new ({
-          :provider => 'pocket',
-          :consumer_key => ENV['POCKET_KEY']
-        })
   end
 
   test "should get index" do

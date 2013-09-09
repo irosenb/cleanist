@@ -22,10 +22,10 @@ class Pocket < User
 	end
 
 	def to_archive
-		puts list = JSON.parse(retrieve)
+		ap list = JSON.parse(retrieve)
 		id_list = []
 		list["list"].each do |id, item|
-			if item["tag"] != "keep" or item["status"] == 0
+			if item["tag"] != "keep" and item["status"] == "0"
 				id_list << id 
 			end
 		end
@@ -33,13 +33,32 @@ class Pocket < User
 	end
 
 	def archive
-		@to_archive.each do |id|
-			
+		url = 'send'
+		archive = {}
+		to_archive.each do |id|
+			action_hash = {
+				:action => "archive",
+				:item_id => id
+			}
+			archive.merge!(id => action_hash)
 		end
+		pocket_url = url_join(url_base, url)
+		archive
 	end
 
 	def url_base
 		version = "3" # If Pocket comes out with a new API version, this will come in handy.
 		base_url = "https://getpocket.com/v#{version}/"
+	end
+
+	def options
+		token = self.token
+		consumer_key = ENV['POCKET_KEY']
+		
+		options = {
+			:token => token,
+			:consumer_key => consumer_key
+		}
+		
 	end
 end
