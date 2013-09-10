@@ -24,7 +24,7 @@ class Pocket < User
 	def to_archive
 		ap list = JSON.parse(retrieve)
 		id_list = []
-		list["list"].each do |id, item|
+		list["list"].each do |id, item|2
 			if item["tag"] != "keep" and item["status"] == "0"
 				id_list << id 
 			end
@@ -34,7 +34,7 @@ class Pocket < User
 
 	def archive
 		url = 'send'
-		archive = {}
+		ap archive = options
 		to_archive.each do |id|
 			action_hash = {
 				:action => "archive",
@@ -43,7 +43,7 @@ class Pocket < User
 			archive.merge!(id => action_hash)
 		end
 		pocket_url = url_join(url_base, url)
-		archive
+		# archive.
 	end
 
 	def url_base

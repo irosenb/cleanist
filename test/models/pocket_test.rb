@@ -10,7 +10,7 @@ class PocketTest < ActiveSupport::TestCase
   end
 
   test "should retrieve pocket list" do
-  	
+  	assert_not_nil @user.to_archive
   end
 
   test "should archive list" do

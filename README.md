@@ -1,8 +1,15 @@
 # Cleanist
 
-Welcome to Cleanist! I build this because I was frustrated about the absurd amount of articles saved to my [Pocket](http://getpocket.com), my preferred read later service. I always felt like I should save these already read articles to read one day, and 1,000 articles later, here we are.
+Welcome to Cleanist! I build this because I was frustrated about the absurd amount of articles I have saved to my [Pocket](http://getpocket.com), my preferred read later service, that I never archived. I always felt like I should save these already read articles to read one day, and 1,000 articles later, here we are.
 
 Now of course, this is just the source code. If you were looking for the online version, check it out [here][1].
+
+## Install
+
+In order to install, 
+
+
+
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
