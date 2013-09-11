@@ -40,7 +40,7 @@ class Pocket < User
 				:action => "archive",
 				:item_id => id
 			}
-			archive.merge!(id => action_hash)
+			ap archive.merge!(id => action_hash)
 		end
 		pocket_url = url_join(url_base, url)
 		# archive.
