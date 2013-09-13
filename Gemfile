@@ -24,6 +24,7 @@ gem "awesome_print"
 
 gem "figaro"
 gem "vcr"
+gem "webmock"
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

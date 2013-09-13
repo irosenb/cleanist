@@ -1,6 +1,7 @@
 require "test_helper"
 require "vcr"
 
+
 VCR.configure do |c|
   c.cassette_library_dir = 'fixtures/vcr_cassettes'
   c.hook_into :webmock # or :fakeweb
@@ -16,7 +17,11 @@ class PocketTest < ActiveSupport::TestCase
   end
 
   test "should retrieve pocket list" do
-  	assert_not_nil @user.to_archive
+    VCR.use_cassette('items') do
+      @user.options.merge!({:count => 30})
+      @response = @user.retrieve
+      assert_includes @response, "tag"  
+    end 
   end
 
   test "should archive list" do

@@ -9,22 +9,20 @@ class Pocket < User
 		token = self.token
 		consumer_key = ENV['POCKET_KEY']
 
-		options = {
-			:access_token => token,
-			:consumer_key => consumer_key, 
+		params = options.merge({
 			:since => (since.to_i if defined? since)
-		}
+			})
 		pocket_url = url_join(url_base, url)
 
 		self.update 
 		
-		RestClient.post pocket_url, options
+		RestClient.post pocket_url, params
 	end
 
 	def to_archive
 		ap list = JSON.parse(retrieve)
 		id_list = []
-		list["list"].each do |id, item|2
+		list["list"].each do |id, item|
 			if item["tag"] != "keep" and item["status"] == "0"
 				id_list << id 
 			end
