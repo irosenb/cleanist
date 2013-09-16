@@ -20,7 +20,7 @@ class Pocket < User
 		# token = self.token
 		# consumer_key = ENV['POCKET_KEY']
 		
-		ap params = @options.merge!({
+		params = options.merge!({
 			:since => (since.to_i if defined? since)
 			})
 
@@ -33,7 +33,7 @@ class Pocket < User
 
 
 	def to_archive
-		ap list = JSON.parse(retrieve)
+		list = JSON.parse(retrieve)
 		id_list = []
 		list["list"].each do|id, item|
 			if item["tag"] != "keep" and item["status"] == "0"
@@ -45,16 +45,17 @@ class Pocket < User
 
 	def archive
 		url = 'send'
-		ap archive = @options
+		archive = options
 		to_archive.each do |id|
 			action_hash = {
 				:action => "archive",
 				:item_id => id
 			}
-			ap archive.merge!(id => action_hash)
+			archive.merge!(id => action_hash)
 		end
 		pocket_url = url_join(url_base, url)
-		# archive.
+
+		RestClient.get pocket_url, archive
 	end
 
 	def url_base

@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://getpocket.com/v3/get/
+    body:
+      encoding: US-ASCII
+      string: access_token=8996e844-2e56-301d-6e7f-381418&consumer_key=15466-ce68984d5b15a25a88b85a4c&since=1379216239
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Length:
+      - '104'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Sun, 15 Sep 2013 03:37:21 GMT
+      P3p:
+      - policyref="/w3c/p3p.xml", CP="ALL CURa ADMa DEVa OUR IND UNI COM NAV INT STA
+        PRE"
+      Server:
+      - Apache
+      Status:
+      - 200 OK
+      X-Limit-Key-Limit:
+      - '10000'
+      X-Limit-Key-Remaining:
+      - '9999'
+      X-Limit-Key-Reset:
+      - '3600'
+      X-Limit-User-Limit:
+      - '320'
+      X-Limit-User-Remaining:
+      - '319'
+      X-Limit-User-Reset:
+      - '3600'
+      X-Source:
+      - Pocket
+      Content-Length:
+      - '54'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"status":2,"complete":0,"list":[],"since":1379216241}'
+    http_version: 
+  recorded_at: Sun, 15 Sep 2013 03:37:20 GMT
+recorded_with: VCR 2.5.0

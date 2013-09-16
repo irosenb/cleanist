@@ -21,6 +21,7 @@ gem "rest-client"
 gem "json"
 gem 'twitter-bootstrap-rails'
 gem "awesome_print"
+gem 'delayed_job_active_record'
 
 gem "figaro"
 gem "vcr"
