@@ -6,7 +6,22 @@ Now of course, this is just the source code. If you were looking for the online 
 
 ## Install
 
-In order to install, 
+First, do a `git clone URL_NAME` of this repo. 
+
+Or however you want to download this repo.
+
+## Run
+
+In order to run the actual application, you'll need a few things first. 
+
+I gitignored the file that has my API keys. So you'll have to make a new file in `config/` called `application.yml`. This file holds the API keys necessary to make requests to the read later services like Pocket. 
+
+After that, you'll need to write the API keys in. So if you were putting in your Pocket API key, you would write `POCKET_KEY: YOUR_API_KEY`.
+
+Make sure you have Ruby 2.0 and Rails 4 installed. Do a `bundle install` to install all the needed gems. You might need to run `rake db:migrate` as well to set up the table. 
+
+After all that, run `rails server` and you should be good to go! 
+
 
 
 
