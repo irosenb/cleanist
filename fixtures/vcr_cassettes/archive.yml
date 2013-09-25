@@ -5,7 +5,7 @@ http_interactions:
     uri: https://getpocket.com/v3/get/
     body:
       encoding: US-ASCII
-      string: access_token=8996e844-2e56-301d-6e7f-381418&consumer_key=15466-ce68984d5b15a25a88b85a4c&since=1379216239
+      string: access_token=8996e844-2e56-301d-6e7f-381418&consumer_key=15466-ce68984d5b15a25a88b85a4c&since=1380080012
     headers:
       Accept:
       - '*/*; q=0.5, application/xml'
@@ -25,7 +25,7 @@ http_interactions:
       Content-Type:
       - application/json
       Date:
-      - Sun, 15 Sep 2013 03:37:21 GMT
+      - Wed, 25 Sep 2013 03:33:35 GMT
       P3p:
       - policyref="/w3c/p3p.xml", CP="ALL CURa ADMa DEVa OUR IND UNI COM NAV INT STA
         PRE"
@@ -36,15 +36,15 @@ http_interactions:
       X-Limit-Key-Limit:
       - '10000'
       X-Limit-Key-Remaining:
-      - '9999'
+      - '9996'
       X-Limit-Key-Reset:
-      - '3600'
+      - '3529'
       X-Limit-User-Limit:
       - '320'
       X-Limit-User-Remaining:
-      - '319'
+      - '316'
       X-Limit-User-Reset:
-      - '3600'
+      - '3529'
       X-Source:
       - Pocket
       Content-Length:
@@ -53,7 +53,69 @@ http_interactions:
       - keep-alive
     body:
       encoding: UTF-8
-      string: '{"status":2,"complete":0,"list":[],"since":1379216241}'
+      string: '{"status":2,"complete":0,"list":[],"since":1380080015}'
     http_version: 
-  recorded_at: Sun, 15 Sep 2013 03:37:20 GMT
+  recorded_at: Wed, 25 Sep 2013 03:33:36 GMT
+- request:
+    method: get
+    uri: https://getpocket.com/v3/send?access_token=8996e844-2e56-301d-6e7f-381418&actions=%5B%5D&consumer_key=15466-ce68984d5b15a25a88b85a4c
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Content-Location:
+      - send.php
+      Content-Type:
+      - text/html; charset=UTF-8
+      Date:
+      - Wed, 25 Sep 2013 03:33:35 GMT
+      P3p:
+      - policyref="/w3c/p3p.xml", CP="ALL CURa ADMa DEVa OUR IND UNI COM NAV INT STA
+        PRE"
+      Server:
+      - Apache
+      Status:
+      - 400 Bad Request
+      Tcn:
+      - choice
+      Vary:
+      - negotiate
+      X-Error:
+      - Invalid request, please refer to API documentation
+      X-Error-Code:
+      - '130'
+      X-Limit-Key-Limit:
+      - '10000'
+      X-Limit-Key-Remaining:
+      - '9995'
+      X-Limit-Key-Reset:
+      - '3529'
+      X-Limit-User-Limit:
+      - '320'
+      X-Limit-User-Remaining:
+      - '315'
+      X-Limit-User-Reset:
+      - '3529'
+      X-Source:
+      - Pocket
+      Content-Length:
+      - '15'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: 400 Bad Request
+    http_version: 
+  recorded_at: Wed, 25 Sep 2013 03:33:36 GMT
 recorded_with: VCR 2.5.0

@@ -1,5 +1,7 @@
 require "test_helper"
 require "vcr"
+require "open-uri"
+require "JSON"
 
 VCR.configure do |c|
   c.cassette_library_dir = 'fixtures/vcr_cassettes'
@@ -13,6 +15,7 @@ class PocketTest < ActiveSupport::TestCase
     @user = users(:one)
     VCR.use_cassette('items') do
       @user.options.merge!({:count => 15})
+      ap @user.options
       @response = @user.retrieve
       @body = JSON.parse(@response.body)
     end
@@ -44,7 +47,20 @@ class PocketTest < ActiveSupport::TestCase
   end
 
   test "should archive list" do
-  	VCR.use_cassette('items') do
+  	VCR.use_cassette('archive') do
+      # archive = {:actions => {}}
+      
+      # @body["list"].each do |id, i|
+      #   action_hash = {
+      #     :actions => {
+      #       :action => "archive",
+      #       :item_id => id
+      #     }
+      #   }.to_json
+      #   archive.deep_merge!(action_hash)
+      # end
+      # archive.merge!(@user.options)
+      # ap URI::encode(archive.inspect)
       @user.archive
     end
   end
