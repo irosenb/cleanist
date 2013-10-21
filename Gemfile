@@ -24,8 +24,7 @@ gem "awesome_print"
 gem 'delayed_job_active_record'
 
 gem "figaro"
-gem "vcr"
-
+gem "pry", :group => :development
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -46,6 +45,7 @@ end
 
 group :test do
 	gem "webmock"
+  gem "vcr"
 end
 
 # Use ActiveModel has_secure_password

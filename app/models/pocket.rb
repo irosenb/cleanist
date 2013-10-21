@@ -11,15 +11,18 @@ class Pocket < User
 		
 		@options = {
 			:access_token => token,
-			:consumer_key => consumer_key
+			:consumer_key => consumer_key,
+			:detailType => "complete"
 		}
+		# binding.pry
 	end
 
 	def retrieve
 		url = 'get/'
 		
 		params = options.merge!({
-			:since => (since.to_i if defined? since)
+			# :since => (since.to_i if defined? since)
+			:count => 15
 			})
 
 		pocket_url = url_join(url_base, url)
@@ -34,7 +37,7 @@ class Pocket < User
 		list = JSON.parse(retrieve)
 		id_list = []
 		list["list"].each do |id, item|
-			if item["tag"] != "keep" and item["status"] == "0"
+			if !item["tags"].key?("keep") and item["status"] == "0"
 				id_list << id 
 			end
 		end
