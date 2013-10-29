@@ -21,8 +21,7 @@ class Pocket < User
 		url = 'get/'
 		
 		params = options.merge!({
-			# :since => (since.to_i if defined? since)
-			:count => 15
+			:since => (since.to_i if defined? since)
 			})
 
 		pocket_url = url_join(url_base, url)
@@ -34,10 +33,11 @@ class Pocket < User
 
 
 	def to_archive
-		list = JSON.parse(retrieve)
+		ap list = JSON.parse(retrieve)
 		id_list = []
 		list["list"].each do |id, item|
-			if !item["tags"].key?("keep") and item["status"] == "0"
+			ap item["tags"]
+			if item["tags"].try(:[], "keep").nil? and item["status"] == "0"
 				id_list << id 
 			end
 		end
