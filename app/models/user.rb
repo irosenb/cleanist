@@ -4,9 +4,7 @@ class User < ActiveRecord::Base
 	def since
 		# time since last logged in.
 		# update time UNLESS it's a new person.
-		unless self.updated_at == self.created_at
-			@since = self.updated_at
-		end
+		@since = self.updated_at unless self.updated_at == self.created_at
 	end
 
 	def update
