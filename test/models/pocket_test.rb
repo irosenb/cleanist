@@ -22,8 +22,8 @@ class PocketTest < ActiveSupport::TestCase
         @options = {
           :access_token => token,
           :consumer_key => consumer_key,
-          :detailType => "complete",
-          :count => 15
+          :detailType   => "complete",
+          :count        => 15
          }    
       end
       ap @user.options
@@ -61,13 +61,12 @@ class PocketTest < ActiveSupport::TestCase
 
   test "should archive list" do
   	# VCR.use_cassette('archive') do
-   #    # archive = {:actions => {}}
+   #    # archive = {:ac=> {}}
    #    @user.archive
    #  end
   end
 
   test "should add count parameter" do
-    # @user.options.merge!({:count => 15})
     assert_not_nil @user.options[:count]
     assert_equal 15, @user.options[:count] 
   end

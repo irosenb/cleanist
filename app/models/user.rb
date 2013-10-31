@@ -14,8 +14,8 @@ class User < ActiveRecord::Base
 		self.touch
 	end
 
-	def url_join(base, url)
-		[base, url].join("")
+	def url_join(url)
+		[url_base, url].join("")
 	end
 
 	def to_archive

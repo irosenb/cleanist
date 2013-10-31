@@ -12,7 +12,7 @@ class Pocket < User
 		@options = {
 			:access_token => token,
 			:consumer_key => consumer_key,
-			:detailType => "complete"
+			:detailType 	=> "complete"
 		}
 		# binding.pry
 	end
@@ -24,7 +24,7 @@ class Pocket < User
 			:since => (since.to_i if defined? since)
 			})
 
-		pocket_url = url_join(url_base, url)
+		pocket_url = url_join(url)
 
 		self.update 
 		
@@ -58,13 +58,13 @@ class Pocket < User
 		
 		archive = {:actions => actions}
 		ap archive.merge!(options)
-		ap pocket_url = url_join(url_base, url)
+		ap pocket_url = url_join(url)
 		
 		RestClient.get pocket_url, {:params => archive}
 	end
 
 	def url_base
 		version = "3" # If Pocket comes out with a new API version, this will come in handy.
-		base_url = "https://getpocket.com/v#{version}/"
+		url_base = "https://getpocket.com/v#{version}/"
 	end
 end
