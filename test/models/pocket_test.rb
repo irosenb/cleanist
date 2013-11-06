@@ -26,7 +26,6 @@ class PocketTest < ActiveSupport::TestCase
           :count        => 15
          }    
       end
-      ap @user.options
       # binding.pry
       @response = @user.retrieve
       @body = JSON.parse(@response.body)

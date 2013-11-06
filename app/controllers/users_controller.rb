@@ -34,6 +34,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        @user.delay(:run_at => 1.weeks.from_now).retrieve
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render action: 'show', status: :created, location: @user }
       else

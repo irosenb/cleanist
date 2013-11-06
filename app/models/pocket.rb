@@ -28,7 +28,9 @@ class Pocket < User
 
 		self.update 
 		
-		RestClient.post pocket_url, params
+		response = RestClient.post pocket_url, params
+		# delay(:run_at => 1.weeks.from_now).archive
+		return response
 	end
 
 
