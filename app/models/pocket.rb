@@ -11,8 +11,7 @@ class Pocket < User
 		
 		@options = {
 			:access_token => token,
-			:consumer_key => consumer_key,
-			:detailType 	=> "complete"
+			:consumer_key => consumer_key
 		}
 		# binding.pry
 	end
@@ -21,7 +20,9 @@ class Pocket < User
 		url = 'get/'
 		
 		params = options.merge!({
-			:since => (since.to_i if defined? since)
+			# :since => (since.to_i if defined? since)
+			# :count => 15,
+			:detailType 	=> "complete"
 			})
 
 		pocket_url = url_join(url)
@@ -29,17 +30,22 @@ class Pocket < User
 		self.update 
 		
 		response = RestClient.post pocket_url, params
-		# delay(:run_at => 1.weeks.from_now).archive
+		# puts "-------"
+		# puts Delayed::Job.enqueue(archive)
+		# puts "-------"
 		return response
 	end
 
 
 	def to_archive
-		ap list = JSON.parse(retrieve)
+		list = JSON.parse(retrieve)
 		id_list = []
+		# Go back a week ago.
+		date = Date.today - 7
+		date = date.to_time.to_i
 		list["list"].each do |id, item|
-			ap item["tags"]
-			if item["tags"].try(:[], "keep").nil? and item["status"] == "0"
+			# item["tags"]
+			if item["tags"].try(:[], "keep").nil? and item["status"] == "0" and item["time_added"].to_i < date
 				id_list << id 
 			end
 		end
@@ -52,15 +58,17 @@ class Pocket < User
 		to_archive.each do |id|
 			action = {
 				:action => "archive",
-				:item_id => id
-			}.to_json
+				:item_id => id,
+				:time => Time.now.to_i
+			}
 
 			actions << action
 		end
 		
-		archive = {:actions => actions}
-		ap archive.merge!(options)
-		ap pocket_url = url_join(url)
+		ap archive = {:actions => actions.to_json}
+		archive.merge!(options)
+		pocket_url = url_join(url)
+		# binding.pry
 		
 		RestClient.get pocket_url, {:params => archive}
 	end

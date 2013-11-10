@@ -47,23 +47,31 @@ class PocketTest < ActiveSupport::TestCase
   test "should choose items that are in users list and aren't tagged keep" do
     VCR.use_cassette('items') do
       list = @body["list"]
-      ap expected_list = @user.to_archive
+      expected_list = @user.to_archive
       # binding.pry
-
+      date = Date.today - 7
+      ap date = date.to_time.to_i
+      
       expected_list.each do |item|
+        puts list[item]["time_added"]
         assert_not_nil   list[item]
         assert_equal     list[item]["status"], "0"
         assert_nil       list[item]["tags"].try(:[], "keep")
+        assert_operator  list[item]["time_added"].to_i, :<, date
       end 
     end
   end
 
-  test "should archive list" do
-  	# VCR.use_cassette('archive') do
-   #    # archive = {:ac=> {}}
-   #    @user.archive
-   #  end
-  end
+  # test "should archive list" do
+  # 	VCR.use_cassette('archive') do
+  #     # archive = {:ac=> {}}
+  #     ap results = @user.archive
+
+  #     results.each do |result|
+  #       assert_equal 
+  #     end
+  #   end
+  # end
 
   test "should add count parameter" do
     assert_not_nil @user.options[:count]
