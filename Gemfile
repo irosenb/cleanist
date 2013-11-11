@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'pg', :group => :production
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -23,9 +23,12 @@ gem 'twitter-bootstrap-rails'
 gem 'delayed_job_active_record'
 gem "figaro"
 
+gem "unicorn"
+
 group :development, :test do
   gem "pry"
   gem "awesome_print"
+  gem "sqlite3"
 end
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
