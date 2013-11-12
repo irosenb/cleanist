@@ -4,7 +4,7 @@ CleanistRails::Application.routes.draw do
   # get '/users', :path => '/'
 
   get '/auth/:provider/callback' => 'users#create'
-  # get '/confirm' => ''
+  get '/confirm' => 'application#confirm'
   resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.

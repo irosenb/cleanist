@@ -1,8 +1,21 @@
 require 'test_helper'
+require "pry"
 
 class UsersControllerTest < ActionController::TestCase
   setup do
     @user = users(:one)
+
+    OmniAuth.config.test_mode = true
+    OmniAuth.config.mock_auth[:pocket] = OmniAuth::AuthHash.new ({
+      :provider => 'pocket',
+      :uid => '1234',
+      :info => {
+        :name => 'irosenb'
+      },
+      :credentials => {
+        :token => '8996e844-2e26-301d-6e7f-381418'
+      }
+    })
   end
 
   test "should get index" do
@@ -17,11 +30,13 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should create user" do
+    request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:pocket]
     assert_difference('User.count') do
-      post :create, user: { name: @user.name, type: "#{@user.type}".capitalize, token: @user.token }
+      # binding.pry
+      post :create
     end
 
-    assert_redirected_to user_path(assigns(:user))
+    assert_redirected_to "/confirm"
   end
 
   test "should show user" do

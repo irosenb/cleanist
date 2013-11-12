@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     puts "------------------------------------------------"
     # ap @user.archive
     puts "------------------------------------------------"
-    redirect_to "/", notice: "hi"
+    redirect_to "/confirm", notice: "hi"
 
     # respond_to do |format|
     #   if @user.save
