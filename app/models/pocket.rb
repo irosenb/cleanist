@@ -20,8 +20,6 @@ class Pocket < User
 		url = 'get/'
 		
 		params = options.merge!({
-			# :since => (since.to_i if defined? since)
-			# :count => 15,
 			:detailType 	=> "complete"
 			})
 

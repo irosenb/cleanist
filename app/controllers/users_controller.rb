@@ -29,19 +29,20 @@ class UsersController < ApplicationController
     provider = auth_hash[:provider]
     @user = User.where(name: name, token: token, type: "#{provider}".capitalize).first_or_create
     puts "------------------------------------------------"
-    ap @user.archive
+    # ap @user.archive
     puts "------------------------------------------------"
+    redirect_to "/", notice: "hi"
 
-    respond_to do |format|
-      if @user.save
-        # @user.delay(:run_at => 1.weeks.from_now).retrieve
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @user }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+    #   if @user.save
+    #     # @user.delay(:run_at => 1.weeks.from_now).retrieve
+    #     format.html { redirect_to @user, notice: 'User was successfully created.' }
+    #     format.json { render action: 'show', status: :created, location: @user }
+    #   else
+    #     format.html { render action: 'new' }
+    #     format.json { render json: @user.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /users/1
