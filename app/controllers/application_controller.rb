@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def archive
     if session[:user_id]
-      @user.archive 
+      @user.archive
     else
       redirect_to "/"
     end

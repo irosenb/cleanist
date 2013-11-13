@@ -66,7 +66,6 @@ class Pocket < User
 		ap archive = {:actions => actions.to_json}
 		archive.merge!(options)
 		pocket_url = url_join(url)
-		# binding.pry
 		
 		RestClient.get pocket_url, {:params => archive}
 	end
