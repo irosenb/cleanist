@@ -1,4 +1,5 @@
 require 'test_helper'
+require "awesome_print"
 
 class SignUpFlowTest < ActionDispatch::IntegrationTest
   # test "the truth" do
@@ -27,8 +28,9 @@ class SignUpFlowTest < ActionDispatch::IntegrationTest
 
     request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:pocket]
   	get_via_redirect "/auth/pocket"
-  	assert_includes path, "/users"
-
+  	assert_includes path, "/confirm" 
+    ap user = User.find(session[:user_id])
+    assert_equal "irosenb", user.name
   end
 end
 

@@ -24,12 +24,13 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    token = auth_hash[:credentials][:token]
-    name = auth_hash[:info][:name]
+    token    = auth_hash[:credentials][:token]
+    name     = auth_hash[:info][:name]
     provider = auth_hash[:provider]
     @user = User.where(name: name, token: token, type: "#{provider}".capitalize).first_or_create
     puts "------------------------------------------------"
     # ap @user.archive
+    session[:user_id] = @user.id
     puts "------------------------------------------------"
     redirect_to "/confirm", notice: "hi"
 
