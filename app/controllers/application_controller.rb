@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
   def archive
     if session[:user_id]
       @user.archive
+      redirect_to "/", notice: "your reading queue was successfully cleared!" 
     else
       redirect_to "/"
     end
