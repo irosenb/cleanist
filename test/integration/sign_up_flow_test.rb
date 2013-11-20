@@ -1,5 +1,6 @@
 require 'test_helper'
 require "awesome_print"
+require "pry"
 
 class SignUpFlowTest < ActionDispatch::IntegrationTest
   # test "the truth" do
@@ -30,6 +31,7 @@ class SignUpFlowTest < ActionDispatch::IntegrationTest
   	get_via_redirect "/auth/pocket"
   	assert_includes path, "/confirm" 
     ap user = User.find(session[:user_id])
+    # binding.pry
     assert_equal "irosenb", user.name
   end
 end
