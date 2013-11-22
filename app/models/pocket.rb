@@ -56,8 +56,8 @@ class Pocket < User
 		to_archive.each do |id|
 			action = {
 				:action => "archive",
-				:item_id => id,
-				:time => Time.now.to_i
+				:item_id => id
+				# :time => Time.now.to_i 
 			}
 
 			actions << action
