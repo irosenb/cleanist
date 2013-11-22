@@ -25,6 +25,8 @@ gem "figaro"
 
 gem "unicorn"
 
+gem 'rails_12factor', group: :production
+
 group :development, :test do
   gem "pry"
   gem "awesome_print"
