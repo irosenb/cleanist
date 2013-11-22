@@ -4,6 +4,6 @@ class DropDelayedJobsTable < ActiveRecord::Migration
   end
 
   def down
-    rails ActiveRecord::IrreversibleMigration
+    raise ActiveRecord::IrreversibleMigration
   end
 end
