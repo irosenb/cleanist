@@ -33,18 +33,4 @@ class UserTest < ActiveSupport::TestCase
     created = @user.created_at
     assert_not_equal created, @user.since
   end
-
-  test "user can delay job" do
-    created = @user.created_at
-    @user.delay(:run_at => 1.seconds.from_now).update
-    assert_nil @user.since
-
-    sleep(1) 
-
-    puts Delayed::Job.first.inspect 
-    
-    assert_not_equal created, @user.since
-  end
-
-  # test ""
 end

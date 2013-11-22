@@ -28,10 +28,8 @@ class UsersController < ApplicationController
     name     = auth_hash[:info][:name]
     provider = auth_hash[:provider]
     @user = User.where(name: name, token: token, type: "#{provider}".capitalize).first_or_create
-    puts "------------------------------------------------"
     # ap @user.archive
     session[:user_id] = @user.id
-    puts "------------------------------------------------"
     redirect_to confirm_path
 
     # respond_to do |format|
