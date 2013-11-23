@@ -67,7 +67,7 @@ class Pocket < User
 		archive.merge!(options)
 		pocket_url = url_join(url)
 		
-		RestClient.post pocket_url, archive
+		RestClient.get pocket_url, {:params => archive}
 	end
 
 	def url_base
