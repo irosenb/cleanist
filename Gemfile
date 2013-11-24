@@ -21,6 +21,7 @@ gem "rest-client"
 gem "json"
 gem 'twitter-bootstrap-rails'
 gem "figaro"
+gem 'sidekiq'
 
 gem "unicorn"
 
