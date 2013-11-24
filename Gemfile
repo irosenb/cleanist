@@ -25,6 +25,8 @@ gem 'sidekiq'
 
 gem "unicorn"
 
+gem "sinatra", :require => false
+
 gem 'rails_12factor', group: :production
 
 group :development, :test do

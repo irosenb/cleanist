@@ -3,7 +3,7 @@ class ArchiveWorker
 
   def perform(user_id)
     user = User.find(user_id)
-    user.archive 
+    puts user.archive 
   end
   
   
