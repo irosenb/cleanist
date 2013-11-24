@@ -1,5 +1,4 @@
 require 'test_helper'
-require "delayed_job_active_record"
 
 class UserTest < ActiveSupport::TestCase
   # test "the truth" do
