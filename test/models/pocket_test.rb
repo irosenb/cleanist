@@ -47,7 +47,7 @@ class PocketTest < ActiveSupport::TestCase
   test "should choose items that are in users list and aren't tagged keep" do
     VCR.use_cassette('items') do
       list = @body["list"]
-      puts Benchmark.measure { @user.to_archive }
+      # puts Benchmark.measure { @user.to_archive }
       expected_list = @user.to_archive
       # binding.pry
       date = Date.today - 7

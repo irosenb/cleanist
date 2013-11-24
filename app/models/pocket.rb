@@ -31,7 +31,6 @@ class Pocket < User
 		# puts "-------"
 		# puts Delayed::Job.enqueue(archive)
 		# puts "-------"
-		return response
 	end
 
 
