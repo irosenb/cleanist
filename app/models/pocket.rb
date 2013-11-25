@@ -68,6 +68,8 @@ class Pocket < User
 		
 		RestClient.get pocket_url, {:params => archive}
 	end
+	
+	handle_asynchronously :archive
 
 	def url_base
 		version = "3" # If Pocket comes out with a new API version, this will come in handy.
