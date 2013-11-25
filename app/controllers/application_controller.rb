@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   def archive
-    ArchiveWorker.perform_async(@user.id)
+    @user.archive
     redirect_to root_path, :notice => "Archiving your stuff" 
   end
 
