@@ -23,6 +23,7 @@ gem 'twitter-bootstrap-rails'
 gem "figaro"
 
 gem "unicorn"
+gem "delayed_job"
 
 gem 'rails_12factor', group: :production
 
