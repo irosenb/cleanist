@@ -24,6 +24,8 @@ gem "figaro"
 gem 'sidekiq'
 
 gem "unicorn"
+gem "delayed_job"
+gem 'delayed_job_active_record'
 
 gem "sinatra", :require => false
 
