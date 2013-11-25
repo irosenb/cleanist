@@ -1,5 +1,3 @@
-require "sidekiq/web"
-
 CleanistRails::Application.routes.draw do
 
   root 'users#index'
@@ -10,8 +8,6 @@ CleanistRails::Application.routes.draw do
   get '/archive' => 'application#archive'
   resources :users, :only => [:create]
   
-  # mount Sidekiq::Web, at:'/sidekiq'
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
