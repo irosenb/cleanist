@@ -66,9 +66,8 @@ class Pocket < User
 		archive.merge!(options)
 		pocket_url = url_join(url)
 		
-		RestClient.get pocket_url, {:params => archive}
+		RestClient.get pocket_url, {:params => archive} unless actions.empty?
 	end
-	
 	handle_asynchronously :archive
 
 	def url_base
