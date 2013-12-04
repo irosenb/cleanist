@@ -62,14 +62,16 @@ class Pocket < User
 			actions << action
 		end
 		
+		actions.each_slice(100) do |n|
+			archive = {:actions => actions.to_json}
+			archive.merge!(options)
+			pocket_url = url_join(url)
+			RestClient.get pocket_url, {:params => archive} unless actions.empty?
+		end
 		# ((actions.count / 100.0).round + 1).step(10) do |n|
 			
 		# end 
-		archive = {:actions => actions.to_json}
-		archive.merge!(options)
-		pocket_url = url_join(url)
 		
-		RestClient.get pocket_url, {:params => archive} unless actions.empty?
 	end
 	handle_asynchronously :archive
 
