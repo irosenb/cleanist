@@ -61,7 +61,10 @@ class Pocket < User
 
 			actions << action
 		end
-		 
+		
+		# ((actions.count / 100.0).round + 1).step(10) do |n|
+			
+		# end 
 		archive = {:actions => actions.to_json}
 		archive.merge!(options)
 		pocket_url = url_join(url)
