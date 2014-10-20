@@ -22,6 +22,7 @@ gem "json"
 gem 'twitter-bootstrap-rails'
 gem "figaro"
 gem "workless"
+gem 'devise'
 
 gem "unicorn"
 gem "delayed_job"

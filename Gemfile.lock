@@ -29,6 +29,7 @@ GEM
     arel (4.0.0)
     atomic (1.1.13)
     awesome_print (1.1.0)
+    bcrypt (3.1.7)
     better_errors (1.0.1)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -58,6 +59,13 @@ GEM
     delayed_job_active_record (4.0.0)
       activerecord (>= 3.0, < 4.1)
       delayed_job (>= 3.0, < 4.1)
+    devise (3.4.0)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      responders
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
     erubis (2.7.0)
     excon (0.25.3)
     execjs (2.0.0)
@@ -110,6 +118,7 @@ GEM
     omniauth-pocket (0.1.0)
       omniauth (~> 1.0)
       omniauth-oauth2 (~> 1.0)
+    orm_adapter (0.5.0)
     pg (0.15.1)
     polyglot (0.3.3)
     pry (0.9.12.2)
@@ -143,6 +152,8 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    responders (1.1.1)
+      railties (>= 3.2, < 4.2)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rush (0.6.8)
@@ -196,6 +207,8 @@ GEM
       rack
       raindrops (~> 0.7)
     vcr (2.5.0)
+    warden (1.2.3)
+      rack (>= 1.0)
     webmock (1.13.0)
       addressable (>= 2.2.7)
       crack (>= 0.3.2)
@@ -216,6 +229,7 @@ DEPENDENCIES
   debugger
   delayed_job
   delayed_job_active_record
+  devise
   figaro
   httparty
   jbuilder (~> 1.2)
